@@ -1,0 +1,33 @@
+import requests
+
+# 你的 Server 酱 SendKey（已补全）
+SENDKEY = "SCT324695TxLslodqbbFb6akKSAfrmUXwN"
+
+# 早报内容
+content = """【每日经济政策早报 7:10】
+
+📌 一、宏观趋势与货币政策
+• 央行政策、利率、汇率、通胀、社融、信贷、流动性
+
+📌 二、产业政策与财政支持
+• 产业扶持、财政补贴、房地产、基建、税收政策
+
+📌 三、区域经济与地方战略
+• 地方发展规划、自贸区、城市群、政府工作报告
+
+📌 四、资产信号与国际形势
+• 美联储、美债、美元、黄金、大宗商品、全球形势
+
+—— 每日准时推送，助力学习备考"""
+
+def push():
+    # 完整接口地址
+    url = f"https://sctapi.ftqq.com/{SENDKEY}.send"
+    data = {
+        "text": "每日经济政策早报",
+        "desp": content
+    }
+    requests.post(url, data=data)
+
+# 执行推送
+push()
